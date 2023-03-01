@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<f:SimpleForm id="VTypeForm" class="editableForm" columnsL="3" columnsM="3" editable="true" emptySpanL="6" emptySpanM="6" labelSpanL="3"
+		labelSpanM="3" layout="ResponsiveGridLayout" maxContainerCols="2">
+		<f:content>
+			<core:Title text=""/>
+			<Label text="Dealer Code" design="Bold" required="true">
+				<layoutData>
+					<l:GridData span="L1 M1 S1"/>
+				</layoutData>
+			</Label>
+			<ComboBox id="dealerCombo" selectionChange="onSelectDealer" items="{/results}">
+				<core:Item key="{Key}" text="{Description}"/>
+				<layoutData>
+					<l:GridData span="L2 M2 S2"/>
+				</layoutData>
+			</ComboBox>
+			
+			<Label text="Select Month" class="required" design="Bold" required="true">
+				<layoutData>
+					<l:GridData span="L1 M1 S1"/>
+				</layoutData>
+			</Label>
+			<Select id="MonthCombo" change="onSelectMonthnYear">
+			
+			<Label text="Select Year" class="required" design="Bold" required="true">
+				<layoutData>
+					<l:GridData span="L1 M1 S1"/>
+				</layoutData>
+			</Label>
+			<Select id="YearCombo" change="onSelectMonthnYear">
+				
+				<core:Item key="2020" text="2020"/>
+				<core:Item key="2021" text="2021"/>
+				<core:Item key="2022" text="2022"/>
+				<core:Item key="2023" text="2023"/>
+				<core:Item key="2024" text="2024"/>
+				<core:Item key="2025" text="2025"/>
+				<layoutData>
+					<l:GridData span="L2 M2 S2"/>
+				</layoutData>
+			</Select>
+			<Button text="Proceed" id="proceedbtn" type="Emphasized" class="sign_in" press="onProceed">
+				<layoutData>
+					<l:GridData span="L1 M1 S1"/>
+				</layoutData>
+			</Button>
+			
+			<Button id="idSubmitAll" text="Huddle Submit" press="onAllSubmitPress" type="Emphasized" visible="false" width="70%">
+				<layoutData>
+					<l:GridData span="L2 M2 S2"/>
+				</layoutData>
+			</Button>
+		</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

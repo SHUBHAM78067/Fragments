@@ -1,0 +1,107 @@
+<core:FragmentDefinition
+	 xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" 	xmlns:u="sap.ui.unified"
+	 xmlns:ui="sap.ui.table" >
+	<Dialog contentWidth="1024px" title="Detail PI Report"  class="sapUiNoContentPadding">
+	<ui:Table
+  				id="PIReport"
+				rows="{path : '/results'}"
+				selectionMode="None"
+				rowSelectionChange="HdrSelectionChng"
+				visibleRowCount="10"
+				paste="onPaste"
+				fixedColumnCount="7"
+				setEnableGrouping="true"
+					ariaLabelledBy="title">
+					
+				
+				
+				<ui:columns>
+				 <ui:Column width="11rem">
+						<Label text="Dealer Code" design="Bold"/>
+						<ui:template>
+							<Text  text="{A0PLANT}" wrapping="false" />
+							
+						</ui:template>
+						
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Dealer Name" design="Bold"/>
+						<ui:template>
+							<Text  text="{A0PLANT_T}" wrapping="false" />
+							
+						</ui:template>
+						
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Part No" design="Bold"/>
+						<ui:template>
+							<Text  text="{A0MATERIAL}" wrapping="false" />
+							
+						</ui:template>
+						
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Part Description" design="Bold"/>
+						<ui:template>
+							<Text  text="{A0MATERIAL_T}" wrapping="false" />
+							
+						</ui:template>
+						
+					</ui:Column>
+					
+					<ui:Column width="115px">
+						<Label text="System date" design="Bold"/>
+						<ui:template>
+							<Text text="{ZPI_CNTDT_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="115px" >
+						<Label text="System Stock" design="Bold"/>
+						<ui:template>
+							<Text text="{A9E2ON4CECPV9VXDCGEFP0YHAG_F}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="115px" >
+						<Label text="Actual Stock" design="Bold"/>
+						<ui:template>
+							<Text text="{A9E2ON4CECPV9VXDCIX2978EHC_F}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="15rem">
+						<Label text="Remarks" design="Bold"/>
+						<ui:template>
+							<Text text="{ZPI_REM}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="135px">
+						<Label text="Stock adjustment qty" design="Bold" />
+						<ui:template>
+							<Text text="{A9E2ON4CECPV9VXDCLTM4907Q3_F}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="135px">
+						<Label text="stock adjustment date" design="Bold"/>
+						<ui:template>
+							<Text text="{ZPI_STADT_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column> 
+					<ui:Column width="14rem">
+						<Label text="variation post adjustment" design="Bold"/>
+						<ui:template>
+							<Text text="{A9E2ON4CECPV9VXDCPA6NKI15C_F}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+					
+				</ui:columns>
+			</ui:Table>  
+	
+	<buttons>
+			<Button text="Ok" type="Default" id="onOkPIReport" press="onOKReport"/>
+	</buttons>
+		
+	</Dialog>
+  			
+  				
+  			
+</core:FragmentDefinition>

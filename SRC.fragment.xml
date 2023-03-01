@@ -1,0 +1,67 @@
+<core:FragmentDefinition
+	 xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" 	xmlns:u="sap.ui.unified"
+	 xmlns:ui="sap.ui.table" >
+	 
+	 <HBox  class="hbclass">
+	<HBox class="sapUiMediumMarginTop">
+	<Label   text="Total Leads (Last Day , MTD):"  design="Bold"/>
+			<Label  textAlign="End" width="35px" id="ML_inpId1" text="0"  design="Bold"/>
+			
+	</HBox>
+	<HBox class="sapUiMediumMarginTop">
+	<Label   text="No of Bookings ( Last Day, MTD):"  design="Bold"/>
+			<Label  textAlign="End" width="35px" id="NoB_inpId2" text="0"  design="Bold"/>
+			
+	</HBox>
+	<HBox class="sapUiMediumMarginTop">
+	<Label   text="No of Contacted Customers (Last Day, MTD):"  design="Bold"/>
+			<Label  textAlign="End" width="35px" id="NoCC_inpId3" text="0"  design="Bold"/>
+			
+	</HBox>
+	
+	</HBox>
+	 <ui:Table
+  				id="uiTab11"
+				rows="{/results}"
+				selectionMode="MultiToggle"
+				rowSelectionChange="HdrSelectionChng"
+				visibleRowCount="3"
+				paste="onPaste"
+				
+				ariaLabelledBy="title">
+				
+				<ui:columns>
+				<ui:Column width="9rem">
+						<Label text="Total Leads Generated" />
+						<ui:template>
+							<Text text="{ZVEH_MAT__ZVERTICAL_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Total Attempts" />
+						<ui:template>
+							<Text text="{ZCHASISN0}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="No of bookings" />
+						<ui:template>
+							<Text text="{ZDBMORDER}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="No of Contacted Customers " />
+						<ui:template>
+							<Text text="{ZORD_TYP_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+					
+					
+				</ui:columns>
+			</ui:Table>  
+	
+  			
+  				
+  			
+</core:FragmentDefinition>

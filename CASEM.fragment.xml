@@ -1,0 +1,117 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<ui:Table id="uiTab8" rows="{/results}" selectionMode="MultiToggle" rowSelectionChange="HdrSelectionChng" visibleRowCount="3"
+		paste="onPaste" fixedColumnCount="3" ariaLabelledBy="title">
+		<ui:extension>
+			<OverflowToolbar>
+				<Title text="Open Cases"/>
+			</OverflowToolbar>
+		</ui:extension>
+		<ui:columns>
+			<ui:Column width="11rem">
+				<Label text="Case ID" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCASE_ID}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="JC no" design="Bold"/>
+				<ui:template>
+					<Text text="{ZDBMORDER}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="EOS No" design="Bold"/>
+				<ui:template>
+					<Text text="" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Case Creation Date" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCASE_CDT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Case Creation Time" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCASE_CTM_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Problem Statement" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCASE_PRS}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Vehicle Reg. Number" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVEHGUID__0CARNUMBER}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Chassis No" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCHASISN0}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Model" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVEH_MAT__0AU_MODEL_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Current Case Status" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCASE_ST}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="10rem">
+				<Label text="Case Open Days" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VTF2BTIHXDBF7_F}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="16rem">
+				<Label text="Case Last Updated Date &amp; Time" design="Bold"/>
+				<ui:template>
+					<Text text="" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="16rem" hAlign="Center">
+				<Label text="JC Status (Open /Closed Invoiced)" design="Bold"/>
+				<ui:template>
+					<Text text="{ZORDSTAT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="JC -T2 date" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCUST_DT2_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enblCombo}" width="100%" change="onSelectReason" selectedKey="{ReasonForGap}" items="{CASEM>/}">
+						<core:Item key="{CASEM>DropDownKey}" text="{CASEM>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea enabled="{enblremarks}" width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+			<!-- <ui:Column width="11rem" hAlign="Center">
+						<Label text="QOC Action" />
+						<ui:template>
+							<Input  enabled="{enbleQOC}" value="{QOCDeviation}"  />
+						</ui:template>
+					</ui:Column> -->
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>

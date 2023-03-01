@@ -1,0 +1,134 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout"  xmlns:ui="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	
+	 <ui:Table
+  				id="uiTab3"
+				rows="{/results}"
+				selectionMode="MultiToggle"
+				rowSelectionChange="HdrSelectionChng"
+				visibleRowCount="3"
+				paste="onPaste"
+				fixedColumnCount="3"
+				ariaLabelledBy="title">
+				 <ui:extension>
+					<OverflowToolbar>
+						<Title id="title" text="Open EOS"/>
+					</OverflowToolbar>
+				</ui:extension>   
+				<ui:columns>
+					<ui:Column width="11rem">
+						<Label text="EOS ticket No" />
+						<ui:template>
+							<Text text="{ZDBMORDER}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+					<ui:Column width="9rem">
+						<Label text="Cust Name" />
+						<ui:template>
+							<Text text="{A0CUSTOMER_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem">
+						<Label text="Cust No" />
+						<ui:template>
+							<Text text="{A0CUSTOMER_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+					<ui:Column width="12rem">
+						<Label text="Cust Type (KAM/Retail)" />
+						<ui:template>
+							<Text text="{A0CUSTOMER__ZKATR1_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="12rem">
+						<Label text="Ticket Assigned to (VAN/Portal)" />
+						<ui:template>
+							<Text text="{A0CUSTOMER__ZKATR1_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem">
+						<Label text="Vehicle Type" />
+						<ui:template>
+							<Text text="{ZVEH_MAT__ZVERTICAL_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Chassis" />
+						<ui:template>
+							<Text text="{ZCHASISN0}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="7rem">
+						<Label text="Veh Reg No" />
+						<ui:template>
+							<Text text="{ZVEH_MAT__ZMPG_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="12rem">
+						<Label text="Ticket created date and time" />
+						<ui:template>
+							<Text text="{ZVEH_MAT__0AU_MODEL}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="12rem">
+						<Label text="Reassigned date and Time" />
+						<ui:template>
+							<Text text="{ZDBMORDER__ZDL_RSN2_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="6rem" hAlign="Center">
+						<Label text="Trip start" />
+						<ui:template>
+							<Text text="{ZDOC_NUM}" wrapping="false" />
+						</ui:template>
+						
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Van reach time" />
+						<ui:template>
+							<Text text="{ZDBMORDER__ZCASE_ID}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Breakdown location" />
+						<ui:template>
+							<Text text="{ZDBMORDER__ZCASE_TYP}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Estiamted Distance" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Total Reach Time (Minutes)" />
+						<ui:template>
+							<Text text="{ZCUST_DT2_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Huddle Call" />
+						<ui:template>
+						<Select enabled="{enblCombo}" selectedKey="{ReasonForGap}"  items="{/results/0/Huddle_Call}">
+				<core:Item key="{Key}" text="{Value}" /></Select>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="20rem" hAlign="Center">
+						<Label text="Remarks" />
+						<ui:template>
+							<TextArea enabled="{enblremarks}" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3"/>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Huddle Date and Time" />
+						<ui:template>
+							<Text text="{ZCUST_DT2_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+				</ui:columns>
+			</ui:Table> 
+	
+</core:FragmentDefinition>

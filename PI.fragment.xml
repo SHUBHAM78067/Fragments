@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<f:SimpleForm id="PIForm" class="editableForm piform" columnsL="3" columnsM="3" editable="true" emptySpanL="0" emptySpanM="0"
+		labelSpanL="10" labelSpanM="10" layout="ResponsiveGridLayout" maxContainerCols="2">
+		<f:content>
+			<core:Title text=""/>
+			<Label text="Total Partlines reflected (MTD)" textAlign="Begin" textDirection="RTL" class="kpitxtcls" design="Bold"/>
+			<Text id="totparline" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<Label text="Actual physical stock entered in PI (MTD)" textDirection="RTL" textAlign="Begin" class="kpitxtcls" design="Bold"/>
+			<Text id="actstk" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<Label text="Stock adjusted lines(MTD)" class="kpitxtcls" textAlign="Begin" design="Bold" textDirection="RTL"/>
+			<Text id="stkadjact" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<!--<core:Title text=""/>-->
+			<!--<Label text="Lines showing “>0” stock in system (MTD)" class="kpitxtcls" textDirection="RTL" textAlign="Begin" design="Bold"/>-->
+			<!--<Text id="stkadjsys" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>-->
+			<!---->
+			<!---->
+			<core:Title text=""/>
+			<Label text="Lines with negative variance" class="kpitxtcls" textDirection="RTL" textAlign="Begin" design="Bold"/>
+			<Text id="idNagVar" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<Label text="% Negative variance with PI checked lines" class="kpitxtcls" textAlign="Begin" design="Bold" textDirection="LTR"/>
+			<Text id="idNagVarLines" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<!---->
+			<!---->
+			<core:Title text=""/>
+			<Label text="Lines with positive variance" class="kpitxtcls" textDirection="RTL" textAlign="Begin" design="Bold"/>
+			<Text id="idPosVar" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+			<Label text="% Positive variance with PI checked lines" class="kpitxtcls" textAlign="Begin" design="Bold" textDirection="LTR"/>
+			<Text id="idPosVarLine" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls"></Text>
+		</f:content>
+	</f:SimpleForm>
+	<ui:Table id="uiTab9" rows="{/results}" selectionMode="None" rowSelectionChange="HdrSelectionChng" visibleRowCount="1" paste="onPaste"
+		ariaLabelledBy="title">
+		<ui:columns>
+			<ui:Column width="328px">
+				<Label text="Total Part Lines (count of part no)(Last Day)" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VXBJCXWXRI39K_F}"></Text>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="311px">
+				<Label text="Actual stock updated in system (Last Day)" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VXBJCXWXYKOP4_F}"></Text>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="245px" hAlign="Center">
+				<Label text="Reason for Non adherence for PI" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enablePIRS}" width="100%" change="onSelectNonADHReason" selectedKey="{NonAdherencePIReasonKey}" items="{PIADH>/}">
+						<core:Item key="{PIADH>DropDownKey}" text="{PIADH>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="370px" hAlign="Center">
+				<Label text="Is stock adjustment done in system as per Norm?" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enablestockYN}" width="100%" change="onSelectReason" selectedKey="{StockAdjustmentDone}">
+						<core:Item key="" text=""/>
+						<core:Item key="Y" text="YES"/>
+						<core:Item key="N" text="NO"/>
+						<core:Item key="NA" text="NA"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="360px" hAlign="Center">
+				<Label text="Reason for Non adherence for stock adjustment" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enableRG}" width="100%" change="onSelectNonAdhStkReason" selectedKey="{NonAdhStockAdjReasonKe}" items="{PISTOCK>/}">
+						<core:Item key="{PISTOCK>DropDownKey}" text="{PISTOCK>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem" hAlign="Center">
+				<Label text="Report" design="Bold"/>
+				<ui:template>
+					<Link text="See Detailed Report" press="onpressPIReport"></Link>
+				</ui:template>
+			</ui:Column>
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>

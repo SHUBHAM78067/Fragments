@@ -1,0 +1,120 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<!-- <HBox class="hbclass"> -->
+	<Toolbar class="tbclass">
+		<HBox class="sapUiMediumMarginTopBottom">
+			<Label text="Open Complaints : " design="Bold" class="kpitxtcls"></Label>
+			<Label width="50px" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls" text="" id="OC_inpId" design="Bold"></Label>
+		</HBox>
+	</Toolbar>
+	<!-- </HBox> -->
+	<ui:Table id="uiTab6" rows="{/results}" selectionMode="MultiToggle" rowSelectionChange="HdrSelectionChng" visibleRowCount="3"
+		paste="onPaste" fixedColumnCount="3" ariaLabelledBy="title">
+		<ui:columns>
+			<ui:Column width="11rem">
+				<Label text="Complaint No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRM_OBJ_ID}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<!-- <ui:Column width="11rem">
+						<Label text="Complaint Type" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column> -->
+			<ui:Column width="9rem">
+				<Label text="Complaint Source" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRM_ACTCAT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="17rem">
+				<Label text="Customer Name" design="Bold"/>
+				<ui:template>
+					<Text text="{A0SOLD_TO_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="Customer No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0SOLD_TO}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Complaint Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCATEG1_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Complaint Sub Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCATEG2_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<!-- <ui:Column width="11rem">
+						<Label text="Comaplint Desription" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column> -->
+			<ui:Column width="11rem">
+				<Label text="Complaint created date" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRMPOSTDAT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<!-- <ui:Column width="12rem">
+						<Label text="Current Complaint Status" design="Bold"/> 
+						<ui:template>
+							<Text text="{ZSTAT_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column> -->
+			<ui:Column width="12rem">
+				<Label text="Vehice Type" design="Bold"/>
+				<ui:template>
+					<Text text="{A0MATERIAL__ZVERTICAL}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem" hAlign="Center">
+				<Label text="Chassis No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0AU_VHVIN}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Model" design="Bold"/>
+				<ui:template>
+					<Text text="{A0MATERIAL__ZMPG_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem" hAlign="Center">
+				<Label text="Complaint First Resolved Date" design="Bold"/>
+				<ui:template>
+					<Text text="{ZRESLV_DT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Open For Days" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VTCMQ9YVPF5T8_F}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enblCombo}" width="100%" selectedKey="{ReasonForGap}" items="{OCOMP>/}">
+						<core:Item key="{OCOMP>DropDownKey}" text="{OCOMP>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea enabled="{enblremarks}" width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>

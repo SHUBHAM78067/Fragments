@@ -1,0 +1,137 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:t="sap.ui.table">
+	<t:Table id="idSumryEpod_Grn_Table" rows="{/results}" selectionMode="Single" visibleRowCount="1" width="70%">
+		<t:columns>
+			<t:Column width="12rem" hAlign="Center">
+				<Label text="Total Pending Lines for GRN" wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDTLDA6P76WWSW_F}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem" hAlign="Center">
+				<Label text="Replenishment" wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDTLBNM55GWBGD_F}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem" hAlign="Center">
+				<Label text="VOR" wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDTLBNM55NKV7H_F}" design="Bold"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem" hAlign="Center">
+				<Label text="Accidental" wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDTLBNM55UZR3X_F}"/>
+				</t:template>
+			</t:Column>
+		</t:columns>
+	</t:Table>
+	<t:Table id="idEpod_Grn_Table" rows="{/results}" selectionMode="MultiToggle" visibleRowCount="3" rowSelectionChange="epodSelectionChng"
+		fixedColumnCount="3">
+		<t:columns>
+			<t:Column width="7.5rem">
+				<Label text="Invoice No" wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F43}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="7.5rem">
+				<Label text="Po No." wrapping="false" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F1}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="4.6rem">
+				<Label text="PO type" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F3}"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="7.5rem">
+				<Label text="Purchase Date" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F4_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="7.1rem">
+				<Label text="SO NO." design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F8}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="6.5rem">
+				<Label text="Material" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F2}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem">
+				<Label text="Material Descirption" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F2_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="6rem">
+				<Label text="Inv Qty" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDVDV53BUR9AG1_F}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="9.1rem">
+				<Label text="Inv Date" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F44_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="6.6rem">
+				<Label text="EPOD Date" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F64_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="6.6rem">
+				<Label text="EPOD Time" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F65_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="6.6rem">
+				<Label text="TPOD DATE" design="Bold"/>
+				<t:template>
+					<Text text="{ZSER_IS03___F63_T}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="5rem">
+				<Label text="Ageing" design="Bold"/>
+				<t:template>
+					<Text text="{A62WHV1RFHY0LDTLBC17F75OVD_F}"></Text>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<t:template>
+					<Select id="idEPODReasonForGap" enabled="{enblCombo}" change="onReasonGapSelect" selectedKey="{ReasonForGap}" width="100%" items="{EPGP>/}">
+						<core:Item key="{EPGP>DropDownKey}" text="{EPGP>DropdownValue}"/>
+					</Select>
+				</t:template>
+			</t:Column>
+			<t:Column width="12rem">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<t:template>
+					<TextArea enabled="{enblremarks}" width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</t:template>
+			</t:Column>
+			<t:Column width="10rem">
+				<Label text="Status" design="Bold"/>
+				<t:template>
+					<Select id="idEPODStaus" enabled="{enblCombo}" selectedKey="{Status}" width="100%" change="onEPODStatusSelect">
+						<core:Item key="" text=""/>
+						<core:Item key="pending" text="Pending"/>
+						<core:Item key="closed" text="Closed"/>
+					</Select>
+				</t:template>
+			</t:Column>
+		</t:columns>
+	</t:Table>
+</core:FragmentDefinition>

@@ -1,0 +1,132 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<!-- HBox  class="hbclass1"> -->
+	<Toolbar class="tbclass">
+		<HBox class="sapUiMediumMarginTopBottom">
+			<Label text="Revisit JC (MTD):" design="Bold" class="kpitxtcls"/>
+			<Label textAlign="End" width="50px" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" id="RV_inpId1" text="" design="Bold"/>
+		</HBox>
+		<HBox class="sapUiMediumMargin">
+			<Label text="Total Applicable JC (MTD):" design="Bold" class="kpitxtcls"/>
+			<Label textAlign="End" width="50px" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" id="TAPPJC_inpId2" text="" design="Bold"/>
+		</HBox>
+		<HBox class="sapUiMediumMarginTopBottom">
+			<Label text="% Revisit (MTD):" design="Bold" class="kpitxtcls"/>
+			<Label textAlign="End" width="50px" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" id="PerPV_inpId3" text="" design="Bold"/>
+		</HBox>
+	</Toolbar>
+	<!-- </HBox> -->
+	<ui:Table id="uiTab12" rows="{path : '/results'}" selectionMode="MultiToggle" rowSelectionChange="HdrSelectionChng" visibleRowCount="3"
+		paste="onPaste" fixedColumnCount="3" ariaLabelledBy="title">
+		<ui:columns>
+			<ui:Column width="9rem">
+				<Label text="Current JC" design="Bold"/>
+				<ui:template>
+					<Text text="{ZDBMORDER}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Current Dealer" design="Bold"/>
+				<ui:template>
+					<Text text="{A0PLANT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Current JC Date" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CALDAY_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Previous JC" design="Bold"/>
+				<ui:template>
+					<Text text="{ZDBMORDR1}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem">
+				<Label text="Previous JC Date" design="Bold"/>
+				<ui:template>
+					<Text text="{ZGATE_DT4_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Previous Dealer" design="Bold"/>
+				<ui:template>
+					<Text text="{ZDEALER4_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Vehicle Chasis No" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCHASISN0}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="17rem">
+				<Label text="Customer Name" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CUSTOMER_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Vehicle Reg. No" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVEHGUID__0CARNUMBER}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Model" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVEH_MAT__ZMPG_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="warranty Flag" design="Bold"/>
+				<ui:template>
+					<Text text="{ZWTY_EFLG_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Tipper Flag" design="Bold"/>
+				<ui:template>
+					<Text text="{ZMOD_EFLG_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="18rem">
+				<Label text="KM travelled from last visit" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VVKUVUHD84BOS_F}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Days from Last visit" design="Bold"/>
+				<ui:template>
+					<Text text="{A9E2ON4CECPV9VVKUVUHEYXU0C_F}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enblCombo}" width="100%" selectedKey="{ReasonForGap}" items="{RV>/}">
+						<core:Item key="{RV>DropDownKey}" text="{RV>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="QOC Action" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enbleQOC}" selectedKey="{QocDeviation}" width="100%">
+						<core:Item key="" text=""/>
+						<core:Item key="Y" text="YES"/>
+						<core:Item key="N" text="NO"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea enabled="{enblremarks}" width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>

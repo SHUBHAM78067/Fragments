@@ -1,0 +1,107 @@
+<core:View xmlns="sap.m" 
+           xmlns:core="sap.ui.core" 
+           xmlns:l="sap.ui.layout"
+           xmlns:f="sap.ui.layout.form" 
+		   xmlns:u="sap.ui.unified"
+	       xmlns:ui="sap.ui.table" controllerName="DailHuddleMeeting.view.V1" 
+	       xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="" class="sapUiSizeCompact" enableScrolling="false" height="95%">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Title id="headerTiltle" class="hdrclass" text="DAILY HUDDLE MEETING"/>
+				</contentMiddle>
+				<contentLeft>
+					
+					<Image id="custIconDetail2" width="40%"/>
+				</contentLeft>
+				<contentRight class="rgtclass">
+				<!-- hello -->
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content >
+		    <!-- Fragment 1 -->
+			<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.VType" class="sapUiSmallMarginBottom" type="XML"/>
+		
+			<IconTabBar id="ITBId" visible="false" expanded="true" class="sapUiResponsiveContentPadding" select="onIcontabSelect">
+				<items>
+					<IconTabFilter text="Open JC" icon="sap-icon://inventory" id="OJKey" key="OJKey" tooltip="Open JC" class="sapUiTinyMargin">
+						<HBox>
+							<ToggleButton text="Open JC" id="ojctb" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" pressed="true" press="onPressOJC"/>
+							<ToggleButton text="Missed SLA" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" id="mslatb" pressed="false"
+								press="onPressMSLA"/>
+							<ToggleButton text="Float Usage" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" id="idFloatUsage" pressed="false"
+								press="onPressFloatUsage"/>
+						</HBox>
+						<!-- Fragment 2 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.OpenJC" class="sapUiSizeCompact" type="XML"/>
+						<!-- Fragment 3 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.MSLA" class="sapUiSizeCompact" type="XML"/>
+						<!-- Fragment 4 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.Float_Usage" class="sapUiSizeCompact" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="Revisit" icon="sap-icon://shipping-status" key="RVKey" id="RVKey" tooltip="Revisit">
+					<!-- Fragment 5 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.RV" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="EOS" icon="sap-icon://bus-public-transport" key="EOSKey" id="EOSKey" tooltip="EOS" class="sapUiTinyMargin">
+						<HBox>
+							<ToggleButton text="Open EOS" id="oeostb" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" pressed="true" press="onPressOEOS"/>
+							<ToggleButton text="Reach Missed SLA" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" id="remslatb" pressed="false"
+								press="onPressRCMSLA"/>
+							<ToggleButton text="Resolution Missed SLA" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" id="rsmslatb" pressed="false"
+								press="onPressRSMSLA"/>
+						</HBox>
+						<!-- Fragment 6 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.OpenEOS" type="XML"/>
+						<!-- Fragment 7 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.RMSLA" type="XML"/>
+						<!-- Fragment 8 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.RSMSLA" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="CRM Complaints" icon="sap-icon://outgoing-call" key="CRMCKey" id="CRMCKey" tooltip="CRM Complaints"
+						class="sapUiTinyMargin">
+						<HBox>
+							<ToggleButton text="Open Complaints" id="octb" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" pressed="true"
+								press="onPressOC"/>
+							<ToggleButton text="Missed SLA Complaints" class="sapUiTinyMargin sapUiNoMarginTop sapUiTinyMarginBottom" id="mslactb" pressed="false"
+								press="onPressMSLAC"/>
+						</HBox>
+						<!-- Fragment 9 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.OC" type="XML"/>
+						<!-- Fragment 10 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.MSLAC" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter text="Case Management" icon="sap-icon://pending" key="CASEMKey" id="CASEMKey" tooltip="Case Management"
+						class="sapUiTinyMargin">
+						<!-- Fragment 1 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.CASEM" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter class="sapUiTinyMargin" text="PI" icon="sap-icon://settings" key="PIKey" id="PIKey" tooltip="PI">
+					<!-- Fragment 1 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.PI" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter class="sapUiTinyMargin" text="Pending GRN" icon="sap-icon://meeting-room" key="epod_grnKey" id="epod_grnKey"
+						tooltip="Pending GRN">
+						<!-- Fragment 1 -->
+						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.EPOD_GRN" type="XML"/>
+					</IconTabFilter>
+			
+				</items>
+			</IconTabBar>
+		</content>
+		<footer >
+			<Bar id="FooterToolBar" class="footerclass">
+				<contentLeft>
+				
+				</contentLeft>
+				<contentRight>
+					<Button type="Emphasized" id="simTrip_btnId" class="sign_in" text="Save as Draft" visible="false" tooltip="Save as Draft"
+						press="DeepCreateCall"/>
+					<Button text="Submit" id="genTrip_btnId" tooltip="Submit" press="DeepCreateCall" visible="false"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</core:View>

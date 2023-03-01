@@ -1,0 +1,99 @@
+<core:FragmentDefinition
+	 xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" 	xmlns:u="sap.ui.unified"
+	 xmlns:ui="sap.ui.table" >
+	
+	
+			<HBox class="hbclass">
+			<HBox class="sapUiMediumMarginTop">
+			<Label  text="New Claim:" design="Bold"></Label>
+			<Label width="35px" textAlign="End"  text="245" id="NC_inpId" design="Bold"></Label>
+			</HBox>
+			<HBox class="sapUiMediumMarginTop">
+			<Label  text="Return Claim:" design="Bold"></Label>
+			<Label width="35px" textAlign="End"  text="245" id="RC_inpId" design="Bold"></Label>
+			</HBox>
+			</HBox>
+			
+	 <ui:Table
+  				id="uiTab14"
+				rows="{/results}"
+				selectionMode="MultiToggle"
+				rowSelectionChange="HdrSelectionChng"
+				visibleRowCount="3"
+				paste="onPaste"
+				fixedColumnCount="3"
+				ariaLabelledBy="title">
+				
+				<ui:columns>
+					<ui:Column width="11rem">
+						<Label text="Claim No." />
+						<ui:template>
+							<Text text="{A0CRM_OBJ_ID}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Claim Amount" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem" >
+						<Label text="claim Date" />
+						<ui:template>
+							<Text text="{A0CRM_ACTCAT_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem">
+						<Label text="JC No." />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem">
+						<Label text="Customer Details" />
+						<ui:template>
+							<Text text="{A0SOLD_TO_T}" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="12rem">
+						<Label text="Chasis No." />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="9rem">
+						<Label text="Claim Type" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="11rem">
+						<Label text="Status" />
+						<ui:template>
+							<Text text="" wrapping="false" />
+						</ui:template>
+					</ui:Column>
+					
+					<ui:Column width="11rem" hAlign="Center">
+						<Label text="Huddle Call" />
+						<ui:template>
+							<Select enabled="{enblCombo}" width="100%" selectedKey="{ReasonForGap}"  items="{/results/0/Huddle_Call}">
+				<core:Item key="{Key}" text="{Value}" />
+			
+			</Select>
+						</ui:template>
+					</ui:Column>
+					<ui:Column width="20rem" hAlign="Center">
+						<Label text="Remarks" />
+						<ui:template>
+							<TextArea enabled="{enblremarks}" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3"/>
+						</ui:template>
+					</ui:Column>
+					
+				</ui:columns>
+			</ui:Table>  
+	
+  			
+  				
+  			
+</core:FragmentDefinition>

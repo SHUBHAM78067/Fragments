@@ -1,0 +1,142 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified" xmlns:ui="sap.ui.table">
+	<!-- <HBox class="hbclass"> -->
+	<Toolbar class="tbclass">
+		<HBox class=" sapUiSmallMarginTopBottom">
+			<Label text="Complaint closure % with SLA (MTD) : " design="Bold" class="kpitxtcls"></Label>
+			<Label width="50px" textAlign="End" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" text="" id="CC_inpId" design="Bold"></Label>
+		</HBox>
+		<HBox class=" sapUiSmallMarginTopBottom">
+			<Label text="Complaints Closed within SLA : " design="Bold" class="kpitxtcls"></Label>
+			<Label width="50px" textAlign="End" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" text="" id="MSLAC_inpId2" design="Bold"></Label>
+		</HBox>
+		<HBox class=" sapUiSmallMarginTopBottom">
+			<Label text="Total Complaints Closed : " design="Bold" class="kpitxtcls"></Label>
+			<Label width="50px" textAlign="End" class="sapUiTinyMarginBegin kpivalcls" textDirection="RTL" text="" id="MSLAC_inpId3" design="Bold"></Label>
+		</HBox>
+		<!-- <HBox class=" sapUiSmallMarginTopBottom">
+			<Label  text="Complaint closure % with SLA (MTD) : " design="Bold"></Label>
+			<Label width="50px" textAlign="End" class="sapUiTinyMarginBegin" textDirection="RTL" text="" id="MSLAC_inpId1" design="Bold"></Label>
+			</HBox> -->
+	</Toolbar>
+	<!-- </HBox> -->
+	<ui:Table id="uiTab7" rows="{path : '/results' , sorter:{path:'HuddleDate',descending: true}}" selectionMode="MultiToggle"
+		rowSelectionChange="HdrSelectionChng" visibleRowCount="3" paste="onPaste" fixedColumnCount="4" ariaLabelledBy="title">
+		<ui:columns>
+			<ui:Column width="2rem">
+				<Label text=""/>
+				<ui:template>
+					<core:Icon src="sap-icon://flag" class="size1" color="{path:'HuddleDate',formatter:'.colorcode'}"></core:Icon>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Complaint No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRM_OBJ_ID}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Complaint Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCATEG1_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="Complaint Source" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRM_ACTCAT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="17rem">
+				<Label text="Customer Name" design="Bold"/>
+				<ui:template>
+					<Text text="{A0SOLD_TO_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="Customer No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0SOLD_TO}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Complaint Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCATEG1_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Complaint Sub Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCATEG2_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<!-- <ui:Column width="11rem">
+						<Label text="Complaint Desription" />
+						<ui:template>
+							<Text text="{ZDESC1}" wrapping="false" />
+						</ui:template>
+					</ui:Column> -->
+			<ui:Column width="14rem">
+				<Label text="Complaint Creation Date" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CRMPOSTDAT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Vehice Type" design="Bold"/>
+				<ui:template>
+					<Text text="{A0MATERIAL__ZVERTICAL}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="7rem" hAlign="Center">
+				<Label text="Chassis No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0AU_VHVIN}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Model" design="Bold"/>
+				<ui:template>
+					<Text text="{A0MATERIAL__ZMPG_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem" hAlign="Center">
+				<Label text="Complaint First Resolved Date" design="Bold"/>
+				<ui:template>
+					<Text text="{ZRESLV_DT_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Complaint Closure Date" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CALDAY_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enblCombo}" selectedKey="{ReasonForGap}" change="onSelectReason" width="100%" items="{MSLAC>/}">
+						<core:Item key="{MSLAC>DropDownKey}" text="{MSLAC>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="QOC Action" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enbleQOC}" selectedKey="{QocDeviation}" width="100%">
+						<core:Item key="" text=""/>
+						<core:Item key="Y" text="YES"/>
+						<core:Item key="N" text="NO"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea enabled="{enblremarks}" width="100%" value="{Remarks}" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>

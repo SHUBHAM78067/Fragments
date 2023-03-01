@@ -1,0 +1,121 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:ui="sap.ui.table" xmlns:f="sap.ui.layout.form">
+	<!-- <HBox class="hbclass"> -->
+	<Toolbar class="tbclass">
+		<HBox class="sapUiMediumMarginTopBottom">
+			<Label text="Open EOS Count : " design="Bold" class="kpitxtcls"></Label>
+			<Label width="60px" textAlign="End" textDirection="RTL" class="sapUiTinyMarginBegin kpivalcls" text="" id="OEOS_inpId" design="Bold"></Label>
+		</HBox>
+	</Toolbar>
+	<!-- </HBox> -->
+	<ui:Table id="uiTab3" rows="{/results}" selectionMode="MultiToggle" rowSelectionChange="HdrSelectionChng" visibleRowCount="3"
+		paste="onPaste" fixedColumnCount="3" ariaLabelledBy="title">
+		
+		<ui:columns>
+			<ui:Column width="11rem">
+				<Label text="EOS Ticket No" design="Bold"/>
+				<ui:template>
+					<Text text="{ZTICKET}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="17rem">
+				<Label text="Customer Name" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CUSTOMER_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="Customer No" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CUSTOMER}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Cust Type (KAM/Retail)" design="Bold"/>
+				<ui:template>
+					<Text text="{A0CUSTOMER__ZKATR1_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="15rem">
+				<Label text="Ticket Assigned to (VAN/Portal)" design="Bold"/>
+				<ui:template>
+					<Text text="{ZASSGN_TO}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="9rem">
+				<Label text="Vehicle Type" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVERTICAL}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem">
+				<Label text="Chassis" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCHASISN0}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="7rem">
+				<Label text="Veh Reg No" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVEH_REG}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem">
+				<Label text="Ticket Created Date &amp; Time" design="Bold"/>
+				<ui:template>
+					<Text text="{ZCRE_DATE_T} {ZCRE_TIME_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="12rem">
+				<Label text="Reassigned Date &amp; Time" design="Bold"/>
+				<ui:template>
+					<Text text="{ZASSIGNDT_T} {ZASSIGNTM_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem" hAlign="Center">
+				<Label text="Trip Start Date &amp; Time" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVAN_STDT_T} {ZEOS_VST_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="14rem" hAlign="Center">
+				<Label text="Van Reach Date &amp; Time" design="Bold"/>
+				<ui:template>
+					<Text text="{ZVANR_DAT_T} {ZVANR_TIM_T}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Breakdown location" design="Bold"/>
+				<ui:template>
+					<Text text="{ZBRK_LOC}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Estiamted Distance" design="Bold"/>
+				<ui:template>
+					<Text text="{ZEOS_VNED}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="13rem" hAlign="Center">
+				<Label text="Total Reach Time (Minutes)" design="Bold"/>
+				<ui:template>
+					<Text text="{ZRESPONSE}" wrapping="false"/>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="11rem" hAlign="Center">
+				<Label text="Huddle Delay Reason" design="Bold"/>
+				<ui:template>
+					<Select enabled="{enblCombo}" selectedKey="{ReasonForGap}" change="onSelectReason" width="100%" items="{OEOS>/}">
+						<core:Item key="{OEOS>DropDownKey}" text="{OEOS>DropdownValue}"/>
+					</Select>
+				</ui:template>
+			</ui:Column>
+			<ui:Column width="20rem" hAlign="Center">
+				<Label text="Remarks" design="Bold" required="true"/>
+				<ui:template>
+					<TextArea enabled="{enblremarks}" value="{Remarks}" width="100%" growingMaxLines="4" maxLength="250" rows="3" placeholder="Mandatory field"/>
+				</ui:template>
+			</ui:Column>
+		
+		</ui:columns>
+	</ui:Table>
+</core:FragmentDefinition>
