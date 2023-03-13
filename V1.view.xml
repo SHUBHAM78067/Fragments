@@ -75,16 +75,16 @@
 					</IconTabFilter>
 					<IconTabFilter text="Case Management" icon="sap-icon://pending" key="CASEMKey" id="CASEMKey" tooltip="Case Management"
 						class="sapUiTinyMargin">
-						<!-- Fragment 1 -->
+						<!-- Fragment 11 -->
 						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.CASEM" type="XML"/>
 					</IconTabFilter>
 					<IconTabFilter class="sapUiTinyMargin" text="PI" icon="sap-icon://settings" key="PIKey" id="PIKey" tooltip="PI">
-					<!-- Fragment 1 -->
+					<!-- Fragment 12 -->
 						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.PI" type="XML"/>
 					</IconTabFilter>
 					<IconTabFilter class="sapUiTinyMargin" text="Pending GRN" icon="sap-icon://meeting-room" key="epod_grnKey" id="epod_grnKey"
 						tooltip="Pending GRN">
-						<!-- Fragment 1 -->
+						<!-- Fragment 13 -->
 						<core:Fragment fragmentName="DailHuddleMeeting.view.fragments.EPOD_GRN" type="XML"/>
 					</IconTabFilter>
 			
